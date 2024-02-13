@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# @charlybourgouin/p14_modal_component
+`p14_modal_component` is a lightweight React library for creating simple modals.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# react-simple-modal
 
-## Available Scripts
+`react-simple-modal` is a lightweight React library for creating simple modals.
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+Install the library via npm:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm install @charlybourgouin/p14_modal_component
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-### `npm test`
+```jsx
+import { useState } from 'react';
+import Modal from '@charlybourgouin/p14_modal_component';
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+function App() {
+  const [modalOpen, setModalOpen] = useState(false);
 
-### `npm run build`
+  return (
+    <div>
+      {/* Your main content here */}
+      <Modal text="Modal content" modalOpen={modalOpen} setModalOpen={setModalOpen} />
+    </div>
+  );
+}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+export default App;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Props
 
-### `npm run eject`
+### ```text``` (String, required)
+The text to be displayed inside the modal.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### ```modalOpen``` (Boolean, required)
+A boolean indicating whether the modal is open or closed.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### ```setModalOpen``` (Function, required)
+A function to toggle the modal state.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Custom Styles
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You can customize the style of the modal using style properties by passing an object as the style prop.
 
-## Learn More
+## Full Example
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```jsx
+import { useState } from 'react';
+import Modal from 'p14_modal_component';
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+function App() {
+  const [modalOpen, setModalOpen] = useState(false);
 
-### Code Splitting
+  return (
+    <div>
+      {/* Your main content here */}
+      <Modal
+        text="Modal content"
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        // You can add custom styles here
+      />
+    </div>
+  );
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+export default App;
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
